@@ -16,14 +16,20 @@ class BaseModel:
         """
         initialization of attributes for public instances
         """
-        if bool(kwargs):
-            for n_attr, value in kwargs.items():
-                if n_attr in ["created_at", "updated_at"]:
-                    setattr(self,
-                            n_attr,
-                            datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f'))
-                elif n_attr != "__class__":
-                    setattr(self, n_attr, value)
+        if len(kwargs) != 0:
+            del kwargs["__class__"]
+
+            for key, value in kwargs.items():
+                if key == "created_at":
+                    self.__dict__["created_at"] = datetime.strptime(
+                            value, "%Y-%m-%dT%H:%M:%S.%f")
+
+                elif key == "updated_at":
+                    self.__dict__["updated_at"] = datetime.strptime(
+                            value, "%Y-%m-%dT%H:%M:%S.%f")
+
+                else:
+                    self.__dict__[key] = value
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
@@ -43,14 +49,14 @@ class BaseModel:
         Method updates the public instance attribute with date and time
         """
         self.updated_at = datetime.now()
-        # models.storage.save()
+        models.storage.save()
         
     def to_dict(self):
         """
         Returns a dictionary containing all keys/values _dict_ of the instance
         """
-        new_dict = (self.__dict__)
-        new_dict["__class__"] = type(self).__name__
-        new_dict["updated_at"] = self.updated_at.isoformat()
-        new_dict["created_at"] = self.created_at.isoformat()
-        return new_dict
+        n_dict = self.__dict__.copy()
+        n_dict["__class__"] = type(self).__name__
+        n_dict["created_at"] = self.created_at.isoformat()
+        n_dict["updated_at"] = self.updated_at.isoformat()
+        return n_dict
