@@ -16,20 +16,14 @@ class BaseModel:
         """
         initialization of attributes for public instances
         """
-        if len(kwargs) != 0:
-            del kwargs["__class__"]
-
-            for key, value in kwargs.items():
-                if key == "created_at":
-                    self.__dict__["created_at"] = datetime.strptime(
-                            value, "%Y-%m-%dT%H:%M:%S.%f")
-
-                elif key == "updated_at":
-                    self.__dict__["updated_at"] = datetime.strptime(
-                            value, "%Y-%m-%dT%H:%M:%S.%f")
-
-                else:
-                    self.__dict__[key] = value
+        if bool(kwargs):
+            for n_attr, value in kwargs.items():
+                if n_attr in ["created_at", "updated_at"]:
+                    setattr(self,
+                            n_attr,
+                            datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f'))
+                elif n_attr != "__class__":
+                    setattr(self, n_attr, value)
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
