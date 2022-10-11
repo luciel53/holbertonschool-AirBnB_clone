@@ -19,8 +19,7 @@ class BaseModel:
         if bool(kwargs):
             for n_attr, value in kwargs.items():
                 if n_attr in ["created_at", "updated_at"]:
-                    setattr(self,
-                            n_attr,
+                    setattr(self,n_attr,
                             datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f'))
                 elif n_attr != "__class__":
                     setattr(self, n_attr, value)
@@ -49,8 +48,8 @@ class BaseModel:
         """
         Returns a dictionary containing all keys/values _dict_ of the instance
         """
-        new_dict = (self.__dict__)
-        new_dict["__class__"] = type(self).__name__
-        new_dict["updated_at"] = self.updated_at.isoformat()
-        new_dict["created_at"] = self.created_at.isoformat()
+        nw_dict = (self.__dict__)
+        nw_dict["__class__"] = type(self).__name__
+        nw_dict["updated_at"] = self.updated_at.strftime('%Y-%m-%dT%H:%M:%S.%f')
+        nw_dict["created_at"] = self.created_at.strftime('%Y-%m-%dT%H:%M:%S.%f')
         return new_dict
