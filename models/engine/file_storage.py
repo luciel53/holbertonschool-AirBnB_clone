@@ -4,7 +4,6 @@ import json
 from models.base_model import BaseModel
 
 
-
 class FileStorage():
     """ Class FileStorage """
     __file_path = "file.json"
@@ -30,9 +29,8 @@ class FileStorage():
         """ Deserializes JSON to __objects (only if JSON file (__file_path) """
         try:
             with open(self.__file_path, mode='r', encoding='utf-8') as f:
-                all_objs = json.loads(f.read())
-            for obj_id, obj in all_objs.items():
-                name_class = obj_id.split(".")[0]
-                self.new(eval(name_class + "(**obj)"))
-        except:
+                for key, value in (json.load(f)).items():
+                    value = eval(value["__class__"])(**value)
+                    self.__objects[key] = value
+        except Exception:
             pass
