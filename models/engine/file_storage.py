@@ -2,7 +2,7 @@
 """The class FileStorage"""
 import json
 from models.base_model import BaseModel
-
+import os
 
 class FileStorage():
     """ Class FileStorage """
@@ -31,13 +31,8 @@ class FileStorage():
 
     def reload(self):
         """ Deserializes JSON to __objects (only if JSON file (__file_path) """
-        try:
-            with open(self.__file_path, "r") as file:
-                obj_dict = json.load(file)
-
-                for key, value in obj_dict.items():
-                    name_class = eval(value["__class__"])(**value)
-                    self.__objects[key] = name_class
-
-        except FileNotFoundError:
-            return
+        if os.path.exists(FileStorage.__file_path) is True:
+            with open(FileStorage.__file_path, 'r', encoding='utf-8') as f:
+                my_obj_dict = json.load(f)
+                for key, val in my_obj_dict.items():
+                    FileStorage.__objects[key] = eval(val['__class__'])(**val)
