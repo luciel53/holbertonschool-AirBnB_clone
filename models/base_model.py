@@ -34,19 +34,27 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            models.storage.new(self)
 
     def __str__(self):
         """
-        Method prints information of an object
-        """
+        Method Prints information of an object
+        """ 
+        prtn = "[{}] ({}) {}"
+        return prtn.format(self.__class__.__name__, self.id, self.__dict__)
+
 
     def save(self):
         """
         Method updates the public instance attribute with date and time
         """
+        self.updated_at = datetime.now()
 
     def to_dict(self):
         """
         Returns a dictionary containing all keys/values _dict_ of the instance
         """
+        n_dict = self.__dict__
+        n_dict["__class__"] =  self .__class__.__name__
+        n_dict["updated_at"] = self.updated_at.isoformat()
+        n_dict["created_at"] = self.created_at.isoformat()
+        return n_dict
