@@ -35,3 +35,18 @@ class BaseModel:
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
             models.storage.new(self)
+
+    def __str__(self):
+        """
+        Method prints information of an object
+        """
+
+    def save(self):
+        """
+        Method updates the public instance attribute with date and time
+        """
+
+    def to_dict(self):
+        """
+        Returns a dictionary containing all keys/values _dict_ of the instance
+        """
