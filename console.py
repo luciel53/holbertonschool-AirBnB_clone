@@ -43,8 +43,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
         else:
-            model = storage.create_model(args)
-            print(model.id)
+            print(eval(args().id))
+            storage.save()
 
 
 if __name__ == '__main__':
