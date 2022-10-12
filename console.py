@@ -46,6 +46,13 @@ class HBNBCommand(cmd.Cmd):
             print(eval(args().id))
             storage.save()
 
+    def do_create_BaseModel():
+        """
+        Creates a new instance of BaseModel, saves it (to the JSON file)
+        and prints the id
+        """
+        print(BaseModel.id)
+        storage.save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
