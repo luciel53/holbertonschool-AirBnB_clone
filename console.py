@@ -66,7 +66,7 @@ class HBNBCommand(cmd.Cmd):
             if key not in storage.all():
                 print("** no instance found **")
             else:
-                 print(storage.all()[key])
+                print(storage.all()[key])
 
     def do_destroy(self, args):
         """
@@ -98,8 +98,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         else:
             print([str(values) for i, values in storage.all().items()
-                if args in i])
-           # print("{}".format(self.list_classes))
+                  if args in i])
+            # print("{}".format(self.list_classes))
 
     def do_update(self, args):
         """
