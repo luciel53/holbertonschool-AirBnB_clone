@@ -45,7 +45,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
         else:
-            print(eval(args().id))
+            new_instance = self.list_classes[args]()
+            new_instance.save()
+            print(new_instance.id)
             storage.save()
 
 
