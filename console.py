@@ -4,7 +4,7 @@ Write a program called console.py that contains the entry point of
 the command interpreter
 """
 from models.base_model import BaseModel
-from models.engine.file_storage import storage
+from models import storage
 import cmd
 
 
