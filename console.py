@@ -121,9 +121,9 @@ class HBNBCommand(cmd.Cmd):
             if key not in storage.all():
                 print("** no instance found **")
             else:
-                obj_upt = args.split()[2]
+                update_obj = args.split()[2]
                 value = args.split()[3]
-                setattr(storage.all()[key], obj_upt, value)
+                setattr(storage.all()[key], update_obj, value)
                 storage.save()
 
 
