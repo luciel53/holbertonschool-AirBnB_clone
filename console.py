@@ -6,6 +6,7 @@ the command interpreter
 from models.base_model import BaseModel
 from models import storage
 import cmd
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
@@ -14,7 +15,7 @@ class HBNBCommand(cmd.Cmd):
     """
     prompt = "(hbnb) "
 
-    list_classes = {"BaseModel": BaseModel}
+    list_classes = {"BaseModel": BaseModel, "User": User}
 
     def do_quit(self, args):
         """
