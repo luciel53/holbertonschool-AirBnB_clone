@@ -39,10 +39,9 @@ class BaseModel:
     def __str__(self):
         """
         Method Prints information of an object
-        """ 
+        """
         prtn = "[{}] ({}) {}"
         return prtn.format(self.__class__.__name__, self.id, self.__dict__)
-
 
     def save(self):
         """
@@ -50,7 +49,7 @@ class BaseModel:
         """
         self.updated_at = datetime.now()
         models.storage.save()
-        
+
     def to_dict(self):
         """
         Returns a dictionary containing all keys/values _dict_ of the instance
