@@ -1,12 +1,15 @@
 #!/usr/bin/python3
+"""
+Write a program called console.py that contains the entry point of
+the command interpreter
+"""
 from models.base_model import BaseModel
 import cmd
 
 
 class HBNBCommand(cmd.Cmd):
     """
-    Write a program called console.py that contains the entry point of the
-    command interpreter
+    prompt command
     """
     prompt = "(hbnb) "
 
