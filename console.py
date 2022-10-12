@@ -97,7 +97,9 @@ class HBNBCommand(cmd.Cmd):
         elif args not in self.list_classes:
             print("** class doesn't exist **")
         else:
-            print("{}".format(self.list_classes))
+            print([str(values) for i, values in storage.all().items()
+                if args in i])
+           # print("{}".format(self.list_classes))
 
 
 
