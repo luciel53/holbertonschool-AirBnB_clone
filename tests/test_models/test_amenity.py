@@ -20,3 +20,8 @@ class TestAmenity(unittest.TestCase):
     def test_subclass(self):
         testamenity = Amenity()
         self.assertTrue(issubclass(testamenity.__class__, BaseModel))
+
+    def test_place_name(self):
+        """ assertequal function"""
+        a = Amenity()
+        self.assertEqual("", a.name)
