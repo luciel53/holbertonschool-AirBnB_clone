@@ -13,7 +13,7 @@ class TestState(unittest.TestCase):
         somewhere = Place()
         self.assertIsInstance(somewhere, Place)
 
-    def test_place_assertisnotnone(self):
+    def test_place_name(self):
         """ assertequal function"""
         a = Place()
-        self.assertIsNotNone(a, None)
+        self.assertEqual("", a.name)
