@@ -13,10 +13,6 @@ class TestFileStorage(unittest.TestCase):
         "Tests that FileStorage correctly instanciates"
         storage = FileStorage()
         self.assertIsInstance(storage, FileStorage)
-    
-    def test_all_base_model(self):
-        """Tests all() method for BaseModel."""
-        self.list_classes:("BaseModel")
 
 
 if __name__ == "__main__":
