@@ -7,7 +7,6 @@ from models.amenity import Amenity
 class TestAmenity(unittest.TestCase):
     "Unit tests suite for Amenity class"
 
-
     def test_class(self):
         testamenity = Amenity()
         self.assertEqual(testamenity.__class__.__name__, "Amenity")
