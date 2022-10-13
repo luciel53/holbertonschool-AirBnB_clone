@@ -6,9 +6,14 @@ from models.place import Place
 
 
 class TestState(unittest.TestCase):
-    "Unit tests for place class"
+    """Unit tests for place class"""
 
-    def test_instance(self):
-        "Test instance "
+    def test_place_isinstance(self):
+        """ function that tests an instance """
         somewhere = Place()
         self.assertIsInstance(somewhere, Place)
+
+    def test_place_assertisnotnone(self):
+        """ assertequal function"""
+        a = Place()
+        self.assertIsNotNone(a, None)
