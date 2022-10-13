@@ -21,7 +21,7 @@ class TestAmenity(unittest.TestCase):
         testamenity = Amenity()
         self.assertTrue(issubclass(testamenity.__class__, BaseModel))
 
-    def test_place_name(self):
+    def test_Amenity_name(self):
         """ assertequal function"""
         a = Amenity()
         self.assertEqual("", a.name)
