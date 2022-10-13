@@ -8,7 +8,7 @@ from models.review import Review
 class TestState(unittest.TestCase):
     """Unit tests for review class"""
 
-    def test_place_name(self):
+    def test_review_name(self):
         """ assertequal function"""
         b = Review()
         self.assertEqual("", b.text)
