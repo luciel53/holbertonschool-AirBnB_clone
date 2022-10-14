@@ -2,8 +2,7 @@
 "Unit tests for BaseModel class"
 import unittest
 from models.base_model import BaseModel
-import json
-import datetime
+from time import sleep
 
 class TestBaseModel(unittest.TestCase):
     "Unit tests suite for BaseModel class"
@@ -11,6 +10,7 @@ class TestBaseModel(unittest.TestCase):
     def test_save(self):
         "Tests that save method updates the datetime"
         base = BaseModel()
+        sleep(0.05)
         old_time = base.updated_at
         base.save()
         self.assertNotEqual(old_time, base.updated_at)
