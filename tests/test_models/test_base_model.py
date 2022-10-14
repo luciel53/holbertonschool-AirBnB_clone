@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 "Unit tests for BaseModel class"
 import unittest
-from datetime import datetime
 from models.base_model import BaseModel
-
+import json
+import datetime
 
 class TestBaseModel(unittest.TestCase):
     "Unit tests suite for BaseModel class"
@@ -14,6 +14,7 @@ class TestBaseModel(unittest.TestCase):
         old_time = base.updated_at
         base.save()
         self.assertNotEqual(old_time, base.updated_at)
+
 
     def test_to_dict(self):
         """
