@@ -682,6 +682,76 @@ Enjoy your first console!
 
 **No unittests needed for the console**
 
+
+# Examples
+
+## Execute the console
+
+```
+./console.py
+```
+
+## Non interactive mode
+
+```
+crasride:~/echo "help" | ./console.py
+
+(hbnb)
+Documented commands (type help <topic>):
+========================================
+EOF  all  create  destroy  help  quit  show  update
+
+(hbnb) crasride:~/
+```
+
+
+## Interactive Mode
+
+```
+crasride@crasride:./console.py
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  all  create  destroy  help  quit  show  update
+
+(hbnb)
+(hbnb) quit
+crasride@crasride
+```
+
+## Create User
+
+```
+(hbnb) create User
+11899844-d855-4bbf-86f4-2dc5896d25bb
+(hbnb)
+```
+
+## Show User
+
+```
+(hbnb) show User 2cb440c7-4ffe-4296-98d4-921cfe3baf99
+[User] (2cb440c7-4ffe-4296-98d4-921cfe3baf99) {'id': '2cb440c7-4ffe-4296-98d4-921cfe3baf99', 'created_at': datetime.datetime(2022, 10, 14, 16, 41, 23, 990658), 'updated_at': datetime.datetime(2022, 10, 14, 16, 41, 23, 990679)}
+
+(hbnb)
+```
+
+## All
+
+```
+(hbnb) all
+["[User] (7d0b8deb-9280-4ae0-8b46-80021fcb7a39) {'id': '7d0b8deb-9280-4ae0-8b46-80021fcb7a39', 'created_at': datetime.datetime(2022, 10, 14, 16, 49, 55, 822272), 'updated_at': datetime.datetime(2022, 10, 14, 16, 49, 55, 822275)}"
+(hbnb)
+```
+## Destroy User
+
+```
+(hbnb) create User
+624d2bff-d4b9-48a5-b8dc-bbb925d00758
+(hbnb) destroy User 624d2bff-d4b9-48a5-b8dc-bbb925d00758
+```
+
 ## Authors
 
 * José Fernandez Armas
