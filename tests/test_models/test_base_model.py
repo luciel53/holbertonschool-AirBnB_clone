@@ -23,7 +23,7 @@ class TestBaseModel(unittest.TestCase):
         base.save()
         with open('file.json', 'r') as f:
             new_json = json.load(f)
-        print (f"{old_json}\n\n\n\n {new_json}")
+        # print (f"{old_json}\n\n\n\n {new_json}")
         self.assertNotEqual(old_json, new_json)
 
     def test_to_dict(self):
