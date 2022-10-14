@@ -1,8 +1,14 @@
 #!/usr/bin/python3
 "Unit tests for BaseModel class"
+
+from datetime import datetime
 import unittest
 from models.base_model import BaseModel
 from time import sleep
+import json
+from models import storage
+from models.engine.file_storage import FileStorage
+
 
 class TestBaseModel(unittest.TestCase):
     "Unit tests suite for BaseModel class"
@@ -10,11 +16,15 @@ class TestBaseModel(unittest.TestCase):
     def test_save(self):
         "Tests that save method updates the datetime"
         base = BaseModel()
-        sleep(0.05)
-        old_time = base.updated_at
+        old_json = 0
+        new_json = 0
+        with open('file.json', 'r') as fi:
+            old_json = json.load(fi)
         base.save()
-        self.assertNotEqual(old_time, base.updated_at)
-
+        with open('file.json', 'r') as f:
+            new_json = json.load(f)
+        print (f"{old_json}\n\n\n\n {new_json}")
+        self.assertNotEqual(old_json, new_json)
 
     def test_to_dict(self):
         """
