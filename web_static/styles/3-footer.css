@@ -10,5 +10,5 @@ footer {
 	border-top: 1px;
 	border-top-style: solid;
 	border-top-color: #CCCCCC;
-	position: absolute;
+	position: fixed;
 }
