@@ -69,12 +69,13 @@
 	border-top: #DDDDDD 1px solid;
 	border-bottom: #DDDDDD 1px solid;
 	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-self: center;
 	padding-top: 8px;
 	padding-bottom: 4px;
 	margin-bottom: auto;
+	display: flex;
+	justify-content: center;
+	align-self: center;
+
 
 }
 
