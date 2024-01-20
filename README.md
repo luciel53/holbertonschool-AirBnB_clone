@@ -755,4 +755,4 @@ crasride@crasride
 ## Authors
 
 * José Fernandez Armas
-* Lucie Leroty
+* Lucie Leroty - l.leroty.pro@gmail.com
